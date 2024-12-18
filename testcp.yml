@@ -1,0 +1,13 @@
+- name: Testing copy the history file from one to all managed hosts
+  hosts: all
+  tasks:
+    - name: Creating temp on all managed hosts
+      ansible.builtin.file:
+        path: /temp
+        state: directory
+        mode: '0755'
+
+    - name: copying the history file to other nodes
+      ansible.builtin.copy:
+        src: his2.txt
+        dest: /temp/history2.txt

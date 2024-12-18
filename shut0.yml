@@ -1,0 +1,8 @@
+---
+- name: ShutDown Program
+  hosts: all
+  tasks:
+    - name: Trying to shutdown all the managed hosts
+      ansible.builtin.shell:
+        cmd: 'init 0'
+
