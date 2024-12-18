@@ -1,9 +1,0 @@
-#ansible-navigator:
-#  execution-environment:
-#    enabled: true
-#    artifact_dir: /var/log/ansible/json
-#  logging:
-#    append: true
-#    file: /var/log/ansible-navigator.log
-#    level: info
-

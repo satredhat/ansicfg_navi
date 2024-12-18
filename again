@@ -1,8 +1,0 @@
-ansible-navigator:
-  execution-environment:
-    enabled: true
-  logging:
-    append: true
-    file: /var/log/ansible-navigator.log
-    level: info
-
