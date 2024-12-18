@@ -1,0 +1,15 @@
+---
+ansible-navigator:
+  ansible:
+    config:
+      path: ~/ansible.cfg
+  execution-environment:
+    enabled: true
+  logging:
+    level: debug
+    append: false
+    file: /var/log/ansible/ansible-navigator.log
+
+  playbook-artifact:
+    enable: true
+    save-as: /tmp/test_artifact.json

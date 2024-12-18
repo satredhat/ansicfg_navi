@@ -1,0 +1,8 @@
+---
+- name: Trying my first ping with other managed hosts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Ping test
+      ansible.builtin.ping:
+
