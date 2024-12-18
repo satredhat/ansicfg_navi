@@ -1,0 +1,42 @@
+---
+- name:  Enable internet services
+  hosts: pcs1
+  become: true
+  tasks:
+    - name: Install latest versions of firewall, http, mariadb, php, and php-sql
+      ansible.builtin.dnf:
+        name:
+          - firewalld
+          - httpd
+          - mariadb
+          - php
+          - php-mysqlnd
+        state: latest
+
+    - name: Ensure firewall is enabled running 
+      ansible.builtin.service:
+        name: firewalld
+        enabled: true
+        state: started
+
+    - name: Ensure http service is allowed
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: 1
+
+    - name: copying the index file to destination
+      ansible.builtin.copy:
+        src: index.php
+        dest: /var/www/html
+        mode: 0644
+
+- name: test the php page on control node
+  hosts: localhost
+  become: false
+  tasks:
+    - name: runing on control node
+      ansible.builtin.uri:
+        url: http://serverb.example.com
+        status_code: 200

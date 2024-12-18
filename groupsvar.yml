@@ -1,0 +1,7 @@
+---
+- name: Testing the group variable
+  hosts: all
+  tasks:
+    - name: Writting the nodes that group variable declared
+      ansible.builtin.debug:
+        msg: I have solved {{ x }} 
