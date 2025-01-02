@@ -1,0 +1,22 @@
+---
+music_movies:
+
+  Yuvan:
+    Songs:
+      - Venmegam
+      - Thuli_Thuli
+      - EthirNeechaladi
+    Movies:
+      - Yaradi_nee_mogini
+      - Paiya
+      - Biriyani
+
+  ARR:
+    Songs:
+      - Kuchu_kuchu
+      - Kichu_keechu
+      - usurae_nee_thaanae
+    Movies: 
+      - Bombay
+      - CSV
+      - Raayan

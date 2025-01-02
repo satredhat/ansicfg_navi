@@ -1,0 +1,24 @@
+---
+- name: Trying to use the nested loop actually
+  hosts: notmac
+  gather_facts: 0
+  vars_files:
+    - colorvar.yml
+  tasks:
+    - name: Lets go
+      loop: "{{ fname }}"
+      ansible.builtin.debug:
+        msg: >
+          This is the the first name thing "{{ item }}"
+    - name: Here we go with new keywords
+      loop: "{{ lname | dict2items }}"
+      ansible.builtin.debug:
+        msg: >
+          {{ item['key'] }}
+    - name: Debugging this 
+      loop: "{{ lname | dict2items }}"
+      ansible.builtin.debug:
+        msg: >
+          This is something "{{ item['value']['prefix'] }}"
+
+          

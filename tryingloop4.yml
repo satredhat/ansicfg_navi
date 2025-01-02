@@ -1,0 +1,12 @@
+---
+- name: This is loop testing normal prg
+  hosts: notmac
+  gather_facts: true
+  vars_files:
+    - myvari.yml
+  tasks:
+    - name: It is using external variable file to print values
+      loop: "{{ uinloop }}"
+      ansible.builtin.shell:
+        cmd: echo "This is my {{ item }}"
+

@@ -1,0 +1,25 @@
+---
+- name: Now trying the nested loop in different method
+  hosts: notmac
+  gather_facts: 0
+  vars_files:
+    - myvari3.yml
+  tasks:
+    - name: Just printing the music director`s names
+      loop: "{{ music_movies | dict2items }}"
+      ansible.builtin.debug:
+        msg: >
+          Favourite Music Director: "{{ item['key'] }}"
+
+    - name: Just printing the movies of music directors
+      loop: "{{ music_movies | dict2items }}"
+      ansible.builtin.debug:
+        msg: >
+          Favourite Music Director`s "{{ item['key'] }}" songs: "{{ item['value']['Songs'] }}"
+
+    - name: Printing the songs and movies here
+      loop: "{{ music_movies | dict2items }}"
+      ansible.builtin.debug:
+        msg: >
+          Songs are: "{{ item['value']['Songs'] }}" From Movies "{{ item['value']['Movies'] }}"
+

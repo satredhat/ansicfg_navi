@@ -1,0 +1,23 @@
+---
+- name: This is the example of looping 1
+  hosts: node1
+  gather_facts: 1
+  vars:
+    colors:
+      - red
+      - black
+      - blue
+      - yellow
+    passwd: omala
+  tasks:
+    - name: Printing basic colors using debug
+      loop: "{{ colors  }}"
+      ansible.builtin.user:
+        name: "{{ item  }}"
+        state: present
+        password: "{{ passwd | password_hash('sha512') }}"
+        update_password: on_create
+
+
+
+

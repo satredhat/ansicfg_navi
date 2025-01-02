@@ -1,0 +1,16 @@
+---
+- name: This is testing nested loop using varaibles
+  hosts: notmac
+  vars_files:
+    - myvari2.yml
+  tasks:
+    - name: Just printing the nested vars using different methods
+      loop: "{{ songs | dict2items}}"
+      ansible.builtin.debug:
+        msg: >
+          My favourite music directors: "{{ item }}"
+          Favourite songs from mDs : "{{ item['key'] }}"
+          "{{ item['key'] }}" songs are "{{ item['value'] }}"
+
+
+
